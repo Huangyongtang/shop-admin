@@ -10,10 +10,12 @@ Vue.config.productionTip = false
 //引入路由模块
 import VueRouter from "vue-router"
 import Login from './pages/Login.vue'
+import Admin from './pages/Admin.vue'
 // 注册路由
 Vue.use(VueRouter);
 // 配置路由
 const routes = [
+  {path:'/',component:Admin},
   {path: "/login", component: Login}
 ];
 // 路由实例
