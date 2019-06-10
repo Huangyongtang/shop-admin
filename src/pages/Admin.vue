@@ -10,6 +10,7 @@
           </el-header>
           <el-main>
               <Mianbao></Mianbao>
+              <router-view></router-view>
           </el-main>
         </el-container>
     </el-container>
@@ -54,8 +55,7 @@ export default {
   .el-main {
     background-color: #E9EEF3;
     color: #333;
-    text-align: center;
-    line-height: 160px;
+    
    
   }
   

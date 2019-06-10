@@ -9,14 +9,23 @@ Vue.config.productionTip = false
 
 //引入路由模块
 import VueRouter from "vue-router"
+
+//引入组件
 import Login from './pages/Login.vue'
 import Admin from './pages/Admin.vue'
+import Goodslist from './pages/Goodslist.vue'
+import Categorylist from './pages/Categorylist.vue'
+
 // 注册路由
 Vue.use(VueRouter);
 // 配置路由
 const routes = [
-  {path:'/',component:Admin},
-  {path: "/login", component: Login}
+  {path:'/',redirect:'/admin/goods-list'},
+  {path: "/login", component: Login,meta:'登陆'},
+  {path:'/admin',component:Admin,meta:'商品管理',children:[
+    {path:'goods-list',component:Goodslist,meta:'商品列表'},
+    {path:'category-list',component:Categorylist,meta:'栏目列表'},
+  ]},
 ];
 // 路由实例
 const router = new VueRouter({ routes });
