@@ -18,12 +18,12 @@
       
         <el-menu-item index="1-1">
             <template slot="title">
-               <router-link to='/admin/goods-list'>商品管理</router-link>
+               <router-link to='/admin/goods-list' class="goodsmanage">商品管理</router-link>
             </template>
         </el-menu-item>
         <el-menu-item index="1-2">
           <template slot="title">
-            <router-link to='/admin/category-list'>栏目管理</router-link>
+            <router-link to='/admin/category-list' class="categorysmanege">栏目管理</router-link>
             </template>
         </el-menu-item>
 
@@ -50,5 +50,10 @@ export default {
     .el-menu-vertical-demo a{
         color: inherit;
         text-decoration: none;
+    }
+    .goodsmanage,.categorysmanege{
+      display: block;
+      width: 160px;
+      height: 50px;
     }
 </style>

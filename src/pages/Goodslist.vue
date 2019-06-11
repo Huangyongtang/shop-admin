@@ -5,15 +5,20 @@
             <div>
                 <!--按钮  -->
                  <el-row>
-                    <el-button type="primary" round>新增</el-button>
+                    <el-button type="primary" round @click='handelAddGood'>新增</el-button>
                     <el-button type="info" round @click='handelDeleteMore'>删除</el-button>
                     <!-- <el-button type="danger" round>删除</el-button> -->
                  </el-row>
             </div>
             <!-- 搜索框 -->
             <div>
-                <el-input placeholder="请输入内容" v-model="input3" class="input-with-select">
-                    <el-button slot="append" icon="el-icon-search" @click='handelSearch'></el-button>
+                <el-input placeholder="请输入内容" 
+                v-model="input3" 
+                class="input-with-select">
+                    <el-button 
+                        slot="append" icon="el-icon-search" 
+                        @click='handelSearch'>
+                    </el-button>
                 </el-input>
             </div>
         </el-row>
@@ -162,8 +167,10 @@ export default {
       },
 
 
-      handleEdit(index, row) {
-        console.log(index, row);
+      handleEdit(goods) {
+        // console.log(index, row);
+        // console.log(goods);
+        this.$router.push('/admin/goods-edit/'+goods.id)
       },
       //删除单个商品
       handleDelete(index, row) {
@@ -199,7 +206,11 @@ export default {
       handelSearch(){
           this.getPageData(this.input3)
       },
-        },
+      //给新增按钮设置一个跳转
+      handelAddGood(){
+          this.$router.push('/admin/goods-add')
+      }
+    },
         mounted(){
           this.getPageData('')
       },

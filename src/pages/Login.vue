@@ -50,7 +50,7 @@
                 //发送请求
                     this.$axios({
                     //请求的地址
-                    url:'http://localhost:8888/admin/account/login',
+                    url:'http://localhost:8899/admin/account/login',
                     //设置发送方式
                     method:'POST',
                     //发送数据

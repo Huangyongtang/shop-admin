@@ -15,6 +15,8 @@ import Login from './pages/Login.vue'
 import Admin from './pages/Admin.vue'
 import Goodslist from './pages/Goodslist.vue'
 import Categorylist from './pages/Categorylist.vue'
+import GoodsAdd from './pages/GoodsAdd.vue'
+import GoodsEdit from './pages/GoodsEdit.vue'
 
 // 注册路由
 Vue.use(VueRouter);
@@ -25,6 +27,8 @@ const routes = [
   {path:'/admin',component:Admin,meta:'商品管理',children:[
     {path:'goods-list',component:Goodslist,meta:'商品列表'},
     {path:'category-list',component:Categorylist,meta:'栏目列表'},
+    {path:'goods-add',component:GoodsAdd,meta:'新增商品'},
+    {path:'goods-edit/:id',component:GoodsEdit,meta:'编辑商品'},
   ]},
 ];
 // 路由实例
