@@ -9,6 +9,8 @@ Vue.config.productionTip = false
 
 //引入路由模块
 import VueRouter from "vue-router"
+// 引入仓库
+import store from './store/index.js'
 
 //引入组件
 import Login from './pages/Login.vue'
@@ -20,6 +22,7 @@ import GoodsEdit from './pages/GoodsEdit.vue'
 
 // 注册路由
 Vue.use(VueRouter);
+
 // 配置路由
 const routes = [
   {path:'/',redirect:'/admin/goods-list'},
@@ -71,4 +74,5 @@ new Vue({
   render: h => h(App),
   //挂载路由
   router,
+  store
 }).$mount('#app')

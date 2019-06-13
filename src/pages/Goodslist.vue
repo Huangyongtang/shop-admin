@@ -108,7 +108,7 @@ export default {
         ], 
         //设置分页默认样式
         pageIndex:1,//当前页面
-        total:'',//总的数据条数
+        total:0,//总的数据条数
         pageSize:5,//页面显示条数
         selectGoods:[]
         }

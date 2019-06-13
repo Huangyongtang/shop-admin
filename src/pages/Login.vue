@@ -17,12 +17,13 @@
 </div>
 </template>
 <script>
+import { win32 } from 'path';
   export default {
     data() {
       return {
         form: {
-          userName:'',
-          password:''
+          userName:'admin',
+          password:'123456'
         },
         rules:{
         userName:[
@@ -63,9 +64,11 @@
                 //解构赋值
                 const{message,status}=res.data
 
+                this.$store.commit('setUser',message)
                 //判断返回的数值
                 if(status===0){
                     this.$router.push('/')
+                    
                 }
                 if (status===1){
                     this.$message.error(message)
