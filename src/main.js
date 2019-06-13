@@ -34,6 +34,35 @@ const routes = [
 // 路由实例
 const router = new VueRouter({ routes });
 
+// 路由卫士
+// to:去往页面
+// from：从哪个页面出发
+// next:跳转到哪个页面(必不可少，里面可以带url这个参数)
+router.beforeEach((to,from,next) => {
+    axios({
+      url:'http://localhost:8899/admin/account/islogin',
+      method:'GET',
+      // 处理session跨域
+      withCredentials: true,
+    }).then( res =>{
+      // console.log(res);
+      const {code}=res.data
+      if(to.path==='/login'){
+        if (code==="logined"){
+          next('/admin/goods-list')
+        }else{
+          next()
+        }
+      }else{
+        if(code==='logined'){
+          next()
+        }else{
+          next('/login')
+      }
+      }
+    })
+})
+
 //给Vue这个构造函数的原型添加一个属性
 Vue.prototype.$axios=axios
 // 3.全局注册组件
